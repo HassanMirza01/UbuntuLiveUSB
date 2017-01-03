@@ -9,6 +9,10 @@ sudo cp development-chroot/usr/src/linux-headers-${LINUXIUM_KERNEL_RELEASE}-${LI
 sudo cp development-chroot/usr/src/linux-image-${LINUXIUM_KERNEL_RELEASE}-${LINUXIUM_KERNEL_VERSION}_${LINUXIUM_KERNEL_RELEASE}-${LINUXIUM_KERNEL_VERSION}-1_amd64.deb iso-chroot/usr/src/
 
 # add in UCM files for sound
+[ ! -f master.zip ] && echo "Fetching UCM files" &&
+wget https://github.com/plbossart/UCM/archive/master.zip
+unzip -d /tmp master.zip
+
 sudo mkdir -p iso-chroot/usr/share/alsa/ucm
 sudo cp -rf ${PATH_TO}/UCM-master/* iso-chroot/usr/share/alsa/ucm
 
