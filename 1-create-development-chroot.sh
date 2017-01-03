@@ -31,6 +31,6 @@ sudo cp ${PATH_TO}/sources.list development-chroot/etc/apt/
 sudo cp ${PATH_TO}/defconfig development-chroot/
 
 # copy chroot scripts to development chroot
-sudo cp start-compile-linux.source development-chroot
-sudo cp finish-compile-linux.source development-chroot
+sudo cp 3-start-compile-linux.source development-chroot
+sudo cp 4-finish-compile-linux.source development-chroot
 

@@ -1,6 +1,5 @@
-# Linuxium's scripts to create an Ubuntu LiveUSB
 
-These scripts are for creating a custom Ubuntu LiveUSB ISO with latest audio fixes for Intel platforms. Users will be able to test if their audio subsystem is supported in the latest Linux kernels (patches already queued for upstream integration and experimental ones) and report issues.
+These scripts help create a custom Ubuntu LiveUSB ISO with latest audio fixes for Intel platforms. Users will be able to test if their audio subsystem is supported in the latest Linux kernels (patches already queued for upstream integration and experimental ones) and report issues.
 
 The scripts are initially based on those documented on the following sites:
 
@@ -11,15 +10,15 @@ and then further developed by Linuxium (linuxium@linuxium.com.au).
 
 The scripts should be run as follows and in the sequence described:
 
-- ./create-development-chroot.sh - creates a development chroot environment based on an Ubuntu release ISO
-- ./enter-development-chroot.sh - enters the development chroot environment
-- source start-compile-linux.source - downloads the latest experimental kernel with fixes for Intel audio platforms and compiles it as Debian binary packages
-- source finish-compile-linux.source - cleans up the development chroot environment (and must be run prior to exiting the development chroot environment)
-- ./exit-development-chroot.sh - exists the development chroot environment
-- ./create-iso-chroot.sh - creates an ISO chroot environment based on an Ubuntu release ISO
-- ./install-kernel.sh - installs the experimental kernel into the ISO chroot environment
-- ./update-initrd.sh - updates the ISO chroot environment so the new custom ISO can boot the experimental kernel
-- ./make-iso.sh - creates the custom ISO based on the ISO chroot environment
+- ./1-create-development-chroot.sh - creates a development chroot environment based on an Ubuntu release ISO
+- ./2-enter-development-chroot.sh - enters the development chroot environment
+- source 3-start-compile-linux.source - downloads the latest experimental kernel with fixes for Intel audio platforms and compiles it as Debian binary packages
+- source 4-finish-compile-linux.source - cleans up the development chroot environment (and must be run prior to exiting the development chroot environment)
+- ./5-exit-development-chroot.sh - exists the development chroot environment
+- ./6-create-iso-chroot.sh - creates an ISO chroot environment based on an Ubuntu release ISO
+- ./7-install-kernel.sh - installs the experimental kernel into the ISO chroot environment
+- ./8-update-initrd.sh - updates the ISO chroot environment so the new custom ISO can boot the experimental kernel
+- ./9-make-iso.sh - creates the custom ISO based on the ISO chroot environment
 
 with the file 'include-chroot-variables.txt' containing common variables used in all the scripts.
 
