@@ -4,6 +4,9 @@
 
 source include-chroot-variables.txt
 
+[ ! -f ${PATH_TO}/efi_img_bootia32.efi ] && echo "Using efi_img_bootia32.efi from git" && cp efi_img_bootia32.efi ${PATH_TO}/
+[ ! -f ${PATH_TO}/efi_boot_bootia32.efi ] && echo "Using efi_boot_bootia32.efi from git" && cp efi_boot_bootia32.efi ${PATH_TO}/
+
 # add 32-bit bootloader
 mkdir mnt
 sudo mount iso-directory-structure/boot/grub/efi.img mnt
