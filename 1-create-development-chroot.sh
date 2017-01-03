@@ -27,6 +27,8 @@ rmdir mnt
 sudo cp /etc/resolv.conf development-chroot/etc/
 
 # configure sources and kernel config inside development chroot
+[ ! -f ${PATH_TO}/sources.list ] && echo "Using sources.list from git" && cp sources.list ${PATH_TO}/
+[ ! -f ${PATH_TO}/defconfig ] && echo "Using defconfig from git" && cp defconfig ${PATH_TO}/
 sudo cp ${PATH_TO}/sources.list development-chroot/etc/apt/
 sudo cp ${PATH_TO}/defconfig development-chroot/
 
