@@ -4,15 +4,10 @@
 
 source include-chroot-variables.txt
 
-# get Ubuntu ISO
-rm -f ubuntu.iso
-[ ! -f ${PATH_TO}/${CANONICAL_ISO} ] && echo "Cannot find '${PATH_TO}/${CANONICAL_ISO}' ... exiting." && exit
-ln -s ${PATH_TO}/${CANONICAL_ISO} ubuntu.iso
-
 # mount Ubuntu ISO
 [ -f mnt ] && rm -f mnt
 [ -d mnt ] || mkdir mnt
-sudo mount -o loop ubuntu.iso mnt 2> /dev/null
+sudo mount -o loop ${PATH_TO}/${CANONICAL_ISO} mnt 2> /dev/null
 
 # extract development chroot file system from ISO
 sudo rm -rf squashfs-root development-chroot
@@ -27,12 +22,10 @@ rmdir mnt
 sudo cp /etc/resolv.conf development-chroot/etc/
 
 # configure sources and kernel config inside development chroot
-[ ! -f ${PATH_TO}/sources.list ] && echo "Using sources.list from git" && cp sources.list ${PATH_TO}/
-[ ! -f ${PATH_TO}/defconfig ] && echo "Using defconfig from git" && cp defconfig ${PATH_TO}/
 sudo cp ${PATH_TO}/sources.list development-chroot/etc/apt/
 sudo cp ${PATH_TO}/defconfig development-chroot/
 
 # copy chroot scripts to development chroot
-sudo cp 3-start-compile-linux.source development-chroot
-sudo cp 4-finish-compile-linux.source development-chroot
+sudo cp 2a-start-compile-linux.source development-chroot
+sudo cp 2b-finish-compile-linux.source development-chroot
 
