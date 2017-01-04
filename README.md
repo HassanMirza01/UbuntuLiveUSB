@@ -30,13 +30,14 @@ The actual kernel including how it is compiled is controlled by a further subset
 
 Two additional standalone scripts are provided to help with any extra development requirements in the chroot environments. They are run by entering:
 
-./enter-development-chroot.sh <chroot environment>
-./exit-development-chroot.sh <chroot environment>
+./enter-development-chroot.sh \<chroot environment\>
+
+./exit-development-chroot.sh \<chroot environment\>
 
 
 The second script 'ubuntumultiliveusb.sh' creates a bootable USB that can be used as a multiboot LiveUSB to boot the custom Ubuntu ISO and/or alternative Ubuntu ISOs selected via a multiboot menu. It is run by entering:
 
-./ubuntumultiliveusb.sh /dev/<usb device>
+./ubuntumultiliveusb.sh /dev/\<usb device\>
 
 and uses the file 'usb_partition/boot/grub/grub.cfg' to define the multiboot menu. ISOs can be added or removed by editing the script and menu configuration file. The installation of an ISO should be performed when actually running the ISO. The script includes a five second grace period allowing it to be interrupted as care should be taken to ensure the correct USB device is passed as the parameter in order to prevent accidental data corruption of any other USB device currently being used.
 
